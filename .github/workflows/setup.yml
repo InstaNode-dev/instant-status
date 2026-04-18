@@ -9,6 +9,11 @@ on:
   repository_dispatch:
     types: [setup]
   workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  pull-requests: write
 jobs:
   release:
     name: Setup Upptime
@@ -17,4 +22,5 @@ jobs:
       - uses: upptime/uptime-monitor@master
         with:
           command: "setup"
+        env:
           GH_PAT: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}

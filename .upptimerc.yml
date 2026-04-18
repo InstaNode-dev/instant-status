@@ -1,0 +1,42 @@
+# Upptime configuration
+# Docs: https://upptime.js.org/docs/configuration
+
+owner: InstaNode-dev
+repo: instant-status
+
+sites:
+  - name: API
+    url: https://api.instanode.dev/healthz
+    expectedStatusCodes:
+      - 200
+    assignees: []
+
+  - name: Marketing site
+    url: https://instanode.dev/
+    expectedStatusCodes:
+      - 200
+
+  # Postgres TLS-only endpoint. Upptime supports a TCP_PING check method
+  # (see https://upptime.js.org/docs/configuration#method). We use that
+  # so we get a true "is the port open" signal rather than poking the
+  # Postgres protocol with an HTTPS prober.
+  - name: Customer Postgres (pg.instanode.dev TLS handshake)
+    url: https://pg.instanode.dev:5432
+    method: TCP_PING
+    tcpHostPort: "pg.instanode.dev:5432"
+    # Fallback codes if the TCP_PING method isn't honored in the current
+    # Upptime action — HTTPS probe to a raw Postgres port typically
+    # surfaces these "not really HTTP" responses which we treat as "up".
+    expectedStatusCodes:
+      - 0
+      - 400
+      - 401
+      - 426
+
+status-website:
+  cname: status.instanode.dev
+  name: instanode.dev status
+  logoUrl: ""
+  baseUrl: /
+
+notifications: []

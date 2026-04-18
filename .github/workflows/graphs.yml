@@ -1,0 +1,16 @@
+name: Graphs CI
+on:
+  repository_dispatch:
+    types: [graphs]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+jobs:
+  release:
+    name: Check status
+    runs-on: ubuntu-latest
+    steps:
+      - uses: upptime/uptime-monitor-action@master
+        with:
+          command: "graphs"
+          GH_PAT: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}

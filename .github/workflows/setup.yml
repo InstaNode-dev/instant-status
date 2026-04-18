@@ -1,0 +1,20 @@
+name: Setup CI
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - ".upptimerc.yml"
+  repository_dispatch:
+    types: [setup]
+  workflow_dispatch:
+jobs:
+  release:
+    name: Setup Upptime
+    runs-on: ubuntu-latest
+    steps:
+      - uses: upptime/uptime-monitor-action@master
+        with:
+          command: "setup"
+          GH_PAT: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}

@@ -1,0 +1,13 @@
+{
+  "name": "instant-status",
+  "version": "1.0.0",
+  "description": "Upptime-powered status page for instanode.dev",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/InstaNode-dev/instant-status.git"
+  },
+  "homepage": "https://status.instanode.dev",
+  "devDependencies": {}
+}

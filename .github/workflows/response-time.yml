@@ -10,7 +10,7 @@ jobs:
     name: Check status
     runs-on: ubuntu-latest
     steps:
-      - uses: upptime/uptime-monitor-action@master
+      - uses: upptime/uptime-monitor@master
         with:
           command: "response-time"
           GH_PAT: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}

@@ -4,18 +4,20 @@
     "url": "https://api.instanode.dev/healthz",
     "icon": "https://icons.duckduckgo.com/ip3/api.instanode.dev.ico",
     "slug": "api",
-    "status": "up",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 290,
-    "timeDay": 366,
+    "status": "down",
+    "uptime": "99.99%",
+    "uptimeDay": "99.89%",
+    "uptimeWeek": "99.98%",
+    "uptimeMonth": "99.99%",
+    "uptimeYear": "99.99%",
+    "time": 286,
+    "timeDay": 209,
     "timeWeek": 302,
-    "timeMonth": 290,
-    "timeYear": 290,
-    "dailyMinutesDown": {}
+    "timeMonth": 286,
+    "timeYear": 286,
+    "dailyMinutesDown": {
+      "2026-05-09": 2
+    }
   },
   {
     "name": "Marketing site",
@@ -28,11 +30,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 174,
-    "timeDay": 220,
-    "timeWeek": 161,
-    "timeMonth": 174,
-    "timeYear": 174,
+    "time": 168,
+    "timeDay": 43,
+    "timeWeek": 143,
+    "timeMonth": 168,
+    "timeYear": 168,
     "dailyMinutesDown": {}
   },
   {

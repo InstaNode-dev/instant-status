@@ -5,18 +5,19 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.instanode.dev.ico",
     "slug": "api",
     "status": "down",
-    "uptime": "99.99%",
-    "uptimeDay": "99.89%",
-    "uptimeWeek": "99.98%",
-    "uptimeMonth": "99.99%",
-    "uptimeYear": "99.99%",
+    "uptime": "96.51%",
+    "uptimeDay": "25.53%",
+    "uptimeWeek": "89.36%",
+    "uptimeMonth": "96.51%",
+    "uptimeYear": "96.51%",
     "time": 286,
     "timeDay": 209,
     "timeWeek": 302,
     "timeMonth": 286,
     "timeYear": 286,
     "dailyMinutesDown": {
-      "2026-05-09": 2
+      "2026-05-10": 131,
+      "2026-05-09": 941
     }
   },
   {

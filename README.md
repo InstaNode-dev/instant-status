@@ -1,52 +1,39 @@
-# instant-status
+# [📈 Live Status](https://status.instanode.dev): <!--live status--> **🟩 All systems operational**
 
-Upptime-powered status page for [instanode.dev](https://instanode.dev).
+<!--start: description-->
+This repository contains the open-source uptime monitor and status page for [instanode.dev](https://instanode.dev), powered by [Upptime](https://github.com/upptime/upptime).
 
-- Live status page: <https://status.instanode.dev>
-- Incidents auto-open as issues in this repo when a monitored endpoint fails; they close automatically when the endpoint recovers.
-- Checks run every 5 minutes from GitHub Actions (`.github/workflows/uptime.yml`).
-- Daily summary, response-time, and graph generation run at 00:00 UTC.
+The 7-service agent bundle plus public web surfaces are probed every 5 minutes from GitHub Actions. Daily summaries, response-time graphs, and incident issues are auto-generated.
+<!--end: description-->
 
-## What is monitored
+[![Uptime CI](https://github.com/InstaNode-dev/instant-status/workflows/Uptime%20CI/badge.svg)](https://github.com/InstaNode-dev/instant-status/actions?query=workflow%3A%22Uptime+CI%22)
+[![Response Time CI](https://github.com/InstaNode-dev/instant-status/workflows/Response%20Time%20CI/badge.svg)](https://github.com/InstaNode-dev/instant-status/actions?query=workflow%3A%22Response+Time+CI%22)
+[![Graphs CI](https://github.com/InstaNode-dev/instant-status/workflows/Graphs%20CI/badge.svg)](https://github.com/InstaNode-dev/instant-status/actions?query=workflow%3A%22Graphs+CI%22)
+[![Summary CI](https://github.com/InstaNode-dev/instant-status/workflows/Summary%20CI/badge.svg)](https://github.com/InstaNode-dev/instant-status/actions?query=workflow%3A%22Summary+CI%22)
 
-Configured in `.upptimerc.yml` — the 7-service agent bundle plus public web surfaces:
+With [Upptime](https://upptime.js.org), you get a free and open-source status page hosted on GitHub Pages. Probes run from GitHub-hosted runners; history is committed to `history/`; incidents are filed as Issues in this repo.
 
-**Public web**
+<!--start: status pages-->
+<!--end: status pages-->
 
-- Marketing site (`instanode.dev/`)
-- Agent API health (`api.instanode.dev/healthz`)
-- Dashboard (`app.instanode.dev/`)
-- OpenAPI spec (`api.instanode.dev/openapi.json`)
+## [Status page](https://status.instanode.dev)
 
-**Provisioning surfaces (7-service bundle)**
+The live status page is at <https://status.instanode.dev>. Incidents that fire because an endpoint returns a non-success code automatically open as Issues here; they close when the endpoint recovers.
 
-- Postgres — `POST /db/new`
-- Redis — `POST /cache/new`
-- MongoDB — `POST /nosql/new`
-- Queue (NATS) — `POST /queue/new`
-- Storage (MinIO) — `POST /storage/new`
-- Webhook — `POST /webhook/new`
-- Deploy — `POST /deploy/new`
+## What's monitored
 
-POST-only routes are probed by GET; a `405 Method Not Allowed` response is the success signal (the handler is wired and the router is up). `/deploy/new` is auth-gated and returns `401` for unauthenticated probes — also treated as success.
+Configured in [`.upptimerc.yml`](.upptimerc.yml):
 
-**Customer TCP surface**
+**Public web** — marketing front door, agent API health, dashboard, OpenAPI spec.
 
-- Customer Postgres TLS handshake (`pg.instanode.dev:5432`)
+**The 7-service agent bundle** — Postgres, Redis, MongoDB, NATS queue, MinIO storage, webhook receiver, and container deploy. POST-only routes are probed with GET and accept `405 Method Not Allowed` as the success signal (the route is registered).
 
-## Setup (one-time human ops)
+## Setup notes
 
-Before the status site renders correctly, an admin needs to do two things — see [`SETUP.md`](./SETUP.md).
-
-1. Add a `GH_PAT` secret (personal access token with `repo` scope) so workflows can push the auto-generated badges, response-time data, and README updates past branch protection.
-2. Either disable `enforce_admins` on the `master` branch protection rule, or grant the PAT owner admin bypass, so the daily Summary/Graphs/Response-Time workflows succeed.
-
-Once both are in place, run `Setup CI` manually from the Actions tab to seed the badge directory; the rest is automatic.
-
-## Powered by
-
-[Upptime](https://upptime.js.org/) — open-source uptime monitor and status page powered by GitHub Actions, Issues, and Pages. No servers, no dashboards, no recurring cost.
+See [`SETUP.md`](SETUP.md) for the two human-ops steps required to enable auto-rewrite of this README (a `GH_PAT` secret + branch-protection allowance).
 
 ## License
 
-MIT
+- Code: [MIT](./LICENSE) © [InstaNode-dev](https://github.com/InstaNode-dev)
+- Status website: [MIT](https://github.com/upptime/upptime.js.org/blob/master/LICENSE) © [Anand Chowdhary](https://anandchowdhary.com)
+- Summary template, workflows, response-time, graphs: [MIT](https://github.com/upptime/upptime/blob/master/LICENSE) © [Anand Chowdhary](https://anandchowdhary.com)

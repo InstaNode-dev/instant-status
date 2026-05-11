@@ -12,12 +12,14 @@ Upptime-powered status page for [instanode.dev](https://instanode.dev).
 Configured in `.upptimerc.yml` — the 7-service agent bundle plus public web surfaces:
 
 **Public web**
+
 - Marketing site (`instanode.dev/`)
 - Agent API health (`api.instanode.dev/healthz`)
 - Dashboard (`app.instanode.dev/`)
 - OpenAPI spec (`api.instanode.dev/openapi.json`)
 
 **Provisioning surfaces (7-service bundle)**
+
 - Postgres — `POST /db/new`
 - Redis — `POST /cache/new`
 - MongoDB — `POST /nosql/new`
@@ -29,6 +31,7 @@ Configured in `.upptimerc.yml` — the 7-service agent bundle plus public web su
 POST-only routes are probed by GET; a `405 Method Not Allowed` response is the success signal (the handler is wired and the router is up). `/deploy/new` is auth-gated and returns `401` for unauthenticated probes — also treated as success.
 
 **Customer TCP surface**
+
 - Customer Postgres TLS handshake (`pg.instanode.dev:5432`)
 
 ## Setup (one-time human ops)

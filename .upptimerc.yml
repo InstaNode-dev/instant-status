@@ -82,18 +82,22 @@ sites:
       - 405
 
   # ─── Customer-facing TCP surfaces ─────────────────────────────────────────
-  - name: Customer Postgres (pg.instanode.dev TLS handshake)
-    url: https://pg.instanode.dev:5432
-    method: TCP_PING
-    tcpHostPort: "pg.instanode.dev:5432"
-    # Fallbacks if TCP_PING isn't honored by the current Upptime action —
-    # probing :5432 over HTTPS surfaces "not really HTTP" codes which we
-    # treat as "the port is open" = up.
-    expectedStatusCodes:
-      - 0
-      - 400
-      - 401
-      - 426
+  # Postgres speaks its own wire protocol (clients send a StartupMessage /
+  # SSLRequest before any TLS handshake), so :5432 is NOT an HTTPS port and
+  # cannot be probed with curl. Upptime's official syntax for raw TCP checks
+  # is `check: tcp-ping` with a bare hostname plus a separate `port:` field.
+  # Schema reference:
+  #   https://github.com/upptime/uptime-monitor/blob/master/src/interfaces.ts
+  # The previous config used `method: TCP_PING` + an https://...:5432 URL,
+  # which Upptime did not recognize — it fell through to curl, attempted a
+  # TLS handshake against the raw Postgres port, and recorded a permanent
+  # "SSL connect error". The endpoint itself is healthy: TCP 5432 on
+  # 152.42.154.144 is exposed by ingress-nginx → instant-pg-proxy in the
+  # cluster, and `nc -zv pg.instanode.dev 5432` succeeds.
+  - name: Customer Postgres (pg.instanode.dev TCP)
+    check: "tcp-ping"
+    url: pg.instanode.dev
+    port: 5432
 
   - name: OpenAPI spec (api.instanode.dev/openapi.json)
     url: https://api.instanode.dev/openapi.json

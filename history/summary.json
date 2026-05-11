@@ -52,7 +52,7 @@
     "timeMonth": 0,
     "timeYear": 0,
     "dailyMinutesDown": {
-      "2026-05-11": 9
+      "2026-05-11": 31
     }
   },
   {
@@ -182,21 +182,21 @@
     "dailyMinutesDown": {}
   },
   {
-    "name": "Customer Postgres (pg.instanode.dev TLS handshake)",
-    "url": "https://pg.instanode.dev:5432",
-    "icon": "https://icons.duckduckgo.com/ip3/pg.instanode.dev.ico",
-    "slug": "customer-postgres-pg-instanode-dev-tls-handshake",
+    "name": "Customer Postgres (pg.instanode.dev TCP)",
+    "url": "pg.instanode.dev",
+    "icon": "https://icons.duckduckgo.com/ip3/null.ico",
+    "slug": "customer-postgres-pg-instanode-dev-tcp",
     "status": "up",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 0,
-    "timeDay": 0,
-    "timeWeek": 0,
-    "timeMonth": 0,
-    "timeYear": 0,
+    "time": 9,
+    "timeDay": 9,
+    "timeWeek": 9,
+    "timeMonth": 9,
+    "timeYear": 9,
     "dailyMinutesDown": {}
   },
   {

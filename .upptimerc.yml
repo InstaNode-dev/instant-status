@@ -24,8 +24,12 @@ sites:
     expectedStatusCodes:
       - 200
 
+  # The standalone dashboard (app.instanode.dev) was retired — its repo is
+  # archived and the app UI now ships from instanode-web at instanode.dev/app/.
+  # The old host is NXDOMAIN, which kept this monitor red (false "partial
+  # outage"). Point it at the live app surface instead.
   - name: Dashboard
-    url: https://app.instanode.dev/
+    url: https://instanode.dev/app/
     expectedStatusCodes:
       - 200
       - 301

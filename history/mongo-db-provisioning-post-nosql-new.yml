@@ -1,7 +1,7 @@
 url: https://api.instanode.dev/nosql/new
-status: down
-code: 0
-responseTime: 0
-lastUpdated: 2026-08-12T02:11:14.917Z
+status: up
+code: 405
+responseTime: 77
+lastUpdated: 2026-08-12T18:29:25.082Z
 startTime: 2026-05-11T16:11:23.287Z
 generator: Upptime <https://github.com/upptime/upptime>
